@@ -80,9 +80,8 @@ async def add_security_headers(request: Request, call_next):
 # Use migrations in production.
 @app.on_event("startup")
 async def startup():
-    async with engine.begin() as conn:
-        # Create only missing tables based on SQLAlchemy models
-        await conn.run_sync(Base.metadata.create_all)
+    pass
+
 
 
 if __name__ == "__main__":

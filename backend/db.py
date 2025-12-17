@@ -32,6 +32,7 @@ ssl_context.verify_mode = ssl.CERT_NONE
 engine = create_async_engine(
     DATABASE_URL,
     echo=False,
+    poolclass=NullPool, 
     pool_pre_ping=True,
     connect_args={
         "ssl": ssl_context,            # required for Supabase

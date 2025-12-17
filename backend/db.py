@@ -21,16 +21,21 @@ if DATABASE_URL.startswith("postgresql://") and "asyncpg" not in DATABASE_URL:
         1,
     )
 
-# SSL context required by Supabase
+# --- SSL CONTEXT (FIX) ---
+# Supabase PgBouncer presents a self-signed cert chain.
+# TLS is still used, but certificate verification must be relaxed.
 ssl_context = ssl.create_default_context()
+ssl_context.check_hostname = False
+ssl_context.verify_mode = ssl.CERT_NONE
+# --- END FIX ---
 
 engine = create_async_engine(
     DATABASE_URL,
     echo=False,
-    pool_pre_ping=True,              # prevents stale connections
+    pool_pre_ping=True,
     connect_args={
-        "ssl": ssl_context,           # Supabase requires TLS
-        "statement_cache_size": 0,    # REQUIRED for PgBouncer
+        "ssl": ssl_context,            # required for Supabase
+        "statement_cache_size": 0,     # REQUIRED for PgBouncer
     },
 )
 

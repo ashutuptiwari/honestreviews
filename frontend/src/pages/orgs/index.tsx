@@ -12,16 +12,16 @@ const OrgsPage: React.FC = () => {
 
   return (
     <Layout>
-      <div className="mb-6 flex justify-between items-center">
+      <div className="mb-4 sm:mb-6 flex flex-col sm:flex-row sm:justify-between sm:items-center gap-3">
         <div>
-          <h1 className="text-3xl font-bold text-light-text dark:text-dark-text">Organizations</h1>
-          <p className="text-light-text-secondary dark:text-dark-text-secondary mt-1">
+          <h1 className="text-2xl sm:text-3xl font-bold text-light-text dark:text-dark-text">Organizations</h1>
+          <p className="text-xs sm:text-sm text-light-text-secondary dark:text-dark-text-secondary mt-1">
             Discover and join communities
           </p>
         </div>
         {user && (
           <Link href="/orgs/new">
-            <Button variant="primary">Create Organization</Button>
+            <Button variant="primary" className="w-full sm:w-auto">Create Organization</Button>
           </Link>
         )}
       </div>

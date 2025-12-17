@@ -31,14 +31,14 @@ export const SortDropdown: React.FC<SortDropdownProps> = ({
   };
 
   return (
-    <div className="flex items-center gap-2">
-      <label className="text-sm font-medium text-light-text dark:text-dark-text">
+    <div className="flex flex-col sm:flex-row items-start sm:items-center gap-1 sm:gap-2">
+      <label className="text-xs sm:text-sm font-medium text-light-text dark:text-dark-text">
         {label}:
       </label>
       <select
         value={`${currentSort}:${currentOrder}`}
         onChange={handleChange}
-        className="px-3 py-2 text-sm bg-light-surface dark:bg-dark-surface text-light-text dark:text-dark-text border border-light-border dark:border-dark-border rounded-lg focus:outline-none focus:ring-2 focus:ring-light-primary dark:focus:ring-dark-primary transition-colors"
+        className="w-full sm:w-auto px-2 sm:px-3 py-1.5 sm:py-2 text-xs sm:text-sm bg-light-surface dark:bg-dark-surface text-light-text dark:text-dark-text border border-light-border dark:border-dark-border rounded-lg focus:outline-none focus:ring-2 focus:ring-light-primary dark:focus:ring-dark-primary transition-colors"
       >
         {options.map((option) => (
           <option key={`${option.value}:${option.order}`} value={`${option.value}:${option.order}`}>

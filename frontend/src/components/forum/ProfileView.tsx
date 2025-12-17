@@ -25,30 +25,30 @@ const ProfileView: React.FC<ProfileViewProps> = ({ profile, canEdit, onEdit }) =
 
   return (
     <div className="card">
-      <div className="flex justify-between items-start mb-6">
-        <h2 className="text-2xl font-bold text-light-text dark:text-dark-text">
+      <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-3 sm:gap-4 mb-4 sm:mb-6">
+        <h2 className="text-xl sm:text-2xl font-bold text-light-text dark:text-dark-text">
           {canEdit ? 'My Profile' : 'Profile'}
         </h2>
         {canEdit && onEdit && (
-          <Button variant="primary" onClick={onEdit}>
+          <Button variant="primary" onClick={onEdit} className="w-full sm:w-auto">
             Edit Profile
           </Button>
         )}
       </div>
 
-      <div className="space-y-5">
+      <div className="space-y-4 sm:space-y-5">
         <div>
-          <label className="block text-sm font-medium text-light-text-secondary dark:text-dark-text-secondary mb-1">
+          <label className="block text-xs sm:text-sm font-medium text-light-text-secondary dark:text-dark-text-secondary mb-1">
             Username
           </label>
-          <p className="text-light-text dark:text-dark-text font-medium">{profile.username}</p>
+          <p className="text-sm sm:text-base text-light-text dark:text-dark-text font-medium">{profile.username}</p>
         </div>
 
         <div>
-          <label className="block text-sm font-medium text-light-text-secondary dark:text-dark-text-secondary mb-1">
+          <label className="block text-xs sm:text-sm font-medium text-light-text-secondary dark:text-dark-text-secondary mb-1">
             Bio
           </label>
-          <p className="text-light-text dark:text-dark-text whitespace-pre-wrap">
+          <p className="text-sm sm:text-base text-light-text dark:text-dark-text whitespace-pre-wrap">
             {profile.bio || (
               <span className="text-light-text-secondary dark:text-dark-text-secondary italic">No bio yet</span>
             )}
@@ -56,10 +56,10 @@ const ProfileView: React.FC<ProfileViewProps> = ({ profile, canEdit, onEdit }) =
         </div>
 
         <div>
-          <label className="block text-sm font-medium text-light-text-secondary dark:text-dark-text-secondary mb-1">
+          <label className="block text-xs sm:text-sm font-medium text-light-text-secondary dark:text-dark-text-secondary mb-1">
             Member Since
           </label>
-          <p className="text-light-text dark:text-dark-text font-medium">{formatDate(profile.created_at)}</p>
+          <p className="text-sm sm:text-base text-light-text dark:text-dark-text font-medium">{formatDate(profile.created_at)}</p>
         </div>
       </div>
     </div>

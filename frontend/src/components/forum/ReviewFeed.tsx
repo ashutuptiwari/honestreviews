@@ -2,11 +2,11 @@ import React from 'react';
 
 export const ReviewFeed: React.FC = () => {
   return (
-    <div className="max-w-4xl mx-auto px-4 py-12">
-      <div className="card p-12 text-center">
-        <div className="mb-4">
+    <div className="max-w-4xl mx-auto px-3 sm:px-6 md:px-8 py-8 sm:py-12">
+      <div className="card p-6 sm:p-8 md:p-12 text-center">
+        <div className="mb-3 sm:mb-4">
           <svg
-            className="mx-auto h-16 w-16 text-light-text-secondary dark:text-dark-text-secondary"
+            className="mx-auto h-12 h-12 sm:h-16 sm:w-16 text-light-text-secondary dark:text-dark-text-secondary"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
@@ -19,10 +19,10 @@ export const ReviewFeed: React.FC = () => {
             />
           </svg>
         </div>
-        <h2 className="text-2xl font-bold text-light-text dark:text-dark-text mb-2">
+        <h2 className="text-lg sm:text-2xl font-bold text-light-text dark:text-dark-text mb-1 sm:mb-2">
           Your Personalized Feed is Coming Soon
         </h2>
-        <p className="text-light-text-secondary dark:text-dark-text-secondary max-w-md mx-auto">
+        <p className="text-xs sm:text-sm text-light-text-secondary dark:text-dark-text-secondary max-w-md mx-auto">
           We're building a personalized review feed that will show you the latest reviews from organizations you're a member of.
         </p>
       </div>

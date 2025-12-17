@@ -155,15 +155,15 @@ export const ReviewList: React.FC<ReviewListProps> = ({
   if (filteredReviews.length === 0) {
     return (
       <div>
-        <div className="flex flex-col sm:flex-row gap-4 items-start sm:items-center justify-between mb-6">
-          <div className="w-full sm:w-64">
+        <div className="flex flex-col gap-3 sm:gap-4 mb-4 sm:mb-6">
+          <div className="w-full">
             <SearchInput value={search} onChange={setSearch} placeholder="Search reviews..." />
           </div>
           <SortDropdown options={SORT_OPTIONS} currentSort={sort} currentOrder="desc" onChange={handleSortChange} />
         </div>
-        <div className="text-center py-12 card">
+        <div className="text-center py-8 sm:py-12 card">
           <svg
-            className="mx-auto h-12 w-12 text-light-text-secondary dark:text-dark-text-secondary mb-4"
+            className="mx-auto h-10 h-10 sm:h-12 sm:w-12 text-light-text-secondary dark:text-dark-text-secondary mb-3 sm:mb-4"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"

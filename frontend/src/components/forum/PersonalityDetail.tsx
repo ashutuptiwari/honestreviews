@@ -17,18 +17,18 @@ export default function PersonalityDetail({ personality }: PersonalityDetailProp
   return (
     <div className="card">
       {/* Header Section */}
-      <div className="pb-6 border-b border-light-border dark:border-dark-border">
-        <div className="flex items-start gap-6">
+      <div className="pb-4 sm:pb-6 border-b border-light-border dark:border-dark-border">
+        <div className="flex flex-col sm:flex-row sm:items-start gap-3 sm:gap-6">
           {/* Avatar */}
           <div className="flex-shrink-0">
             {personality.avatar_url ? (
               <img
                 src={personality.avatar_url}
                 alt={personality.name}
-                className="w-24 h-24 rounded-full object-cover ring-4 ring-light-border dark:ring-dark-border"
+                className="w-16 h-16 sm:w-24 sm:h-24 rounded-full object-cover ring-3 sm:ring-4 ring-light-border dark:ring-dark-border"
               />
             ) : (
-              <div className="w-24 h-24 rounded-full bg-gradient-to-br from-light-primary to-light-primary-hover dark:from-dark-primary dark:to-dark-primary-hover flex items-center justify-center text-white text-3xl font-bold ring-4 ring-light-border dark:ring-dark-border">
+              <div className="w-16 h-16 sm:w-24 sm:h-24 rounded-full bg-gradient-to-br from-light-primary to-light-primary-hover dark:from-dark-primary dark:to-dark-primary-hover flex items-center justify-center text-white text-2xl sm:text-3xl font-bold ring-3 sm:ring-4 ring-light-border dark:ring-dark-border">
                 {personality.name.charAt(0).toUpperCase()}
               </div>
             )}
@@ -36,18 +36,18 @@ export default function PersonalityDetail({ personality }: PersonalityDetailProp
 
           {/* Name and Rating */}
           <div className="flex-1 min-w-0">
-            <h1 className="text-3xl font-bold text-light-text dark:text-dark-text mb-3 break-words">
+            <h1 className="text-lg sm:text-2xl md:text-3xl font-bold text-light-text dark:text-dark-text mb-2 sm:mb-3 break-words">
               {personality.name}
             </h1>
             
             {/* Average Rating */}
             {personality.average_review !== null && personality.average_review !== undefined && (
-              <div className="flex items-center gap-3 mb-3">
-                <div className="flex items-center gap-1">
+              <div className="flex items-center gap-2 sm:gap-3 mb-2 sm:mb-3 flex-wrap">
+                <div className="flex items-center gap-0.5 sm:gap-1">
                   {[1, 2, 3, 4, 5].map((star) => (
                     <svg
                       key={star}
-                      className={`w-6 h-6 ${
+                      className={`w-4 h-4 sm:w-6 sm:h-6 ${
                         star <= personality.average_review!
                           ? 'text-star-gold fill-current'
                           : 'text-light-border dark:text-dark-border'
@@ -65,17 +65,17 @@ export default function PersonalityDetail({ personality }: PersonalityDetailProp
                     </svg>
                   ))}
                 </div>
-                <span className="text-lg font-semibold text-light-text dark:text-dark-text">
+                <span className="text-base sm:text-lg font-semibold text-light-text dark:text-dark-text">
                   {personality.average_review.toFixed(1)}
                 </span>
-                <span className="text-sm text-light-text-secondary dark:text-dark-text-secondary">
+                <span className="text-xs sm:text-sm text-light-text-secondary dark:text-dark-text-secondary">
                   average rating
                 </span>
               </div>
             )}
 
             {/* Created Date */}
-            <p className="text-sm text-light-text-secondary dark:text-dark-text-secondary">
+            <p className="text-xs sm:text-sm text-light-text-secondary dark:text-dark-text-secondary">
               Created on {formatDate(personality.created_at)}
             </p>
           </div>
@@ -84,18 +84,18 @@ export default function PersonalityDetail({ personality }: PersonalityDetailProp
 
       {/* Description Section */}
       {personality.description && (
-        <div className="pt-6">
-          <h2 className="text-lg font-semibold text-light-text dark:text-dark-text mb-3">About</h2>
-          <p className="text-light-text dark:text-dark-text leading-relaxed whitespace-pre-wrap">
+        <div className="pt-4 sm:pt-6">
+          <h2 className="text-base sm:text-lg font-semibold text-light-text dark:text-dark-text mb-2 sm:mb-3">About</h2>
+          <p className="text-xs sm:text-sm text-light-text dark:text-dark-text leading-relaxed whitespace-pre-wrap">
             {personality.description}
           </p>
         </div>
       )}
 
       {/* Metadata Section */}
-      <div className="mt-6 pt-4 border-t border-light-border dark:border-dark-border">
-        <div className="flex items-center gap-2 text-sm text-light-text-secondary dark:text-dark-text-secondary">
-          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <div className="mt-4 sm:mt-6 pt-3 sm:pt-4 border-t border-light-border dark:border-dark-border">
+        <div className="flex items-center gap-2 text-xs sm:text-sm text-light-text-secondary dark:text-dark-text-secondary">
+          <svg className="w-3 h-3 sm:w-4 sm:h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path
               strokeLinecap="round"
               strokeLinejoin="round"

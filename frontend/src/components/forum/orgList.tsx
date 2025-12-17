@@ -43,10 +43,10 @@ export const OrgList: React.FC<OrganizationListProps> = ({
   };
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-4 sm:space-y-6">
       {/* Search and Sort Controls */}
-      <div className="flex flex-col sm:flex-row gap-4 items-start sm:items-center justify-between">
-        <div className="w-full sm:w-64">
+      <div className="flex flex-col gap-3 sm:gap-4">
+        <div className="w-full">
           <SearchInput
             value={search}
             onChange={setSearch}

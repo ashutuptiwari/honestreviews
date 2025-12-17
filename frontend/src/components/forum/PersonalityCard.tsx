@@ -66,32 +66,32 @@ export default function PersonalityCard({
         className="block group"
       >
         <div className="card transition-all hover:shadow-card-hover dark:hover:shadow-card-hover-dark">
-        <div className="flex items-start gap-4">
+        <div className="flex flex-col sm:flex-row items-start gap-3 sm:gap-4">
           {/* Avatar */}
           <div className="flex-shrink-0">
             {personality.avatar_url ? (
               <img
                 src={personality.avatar_url}
                 alt={personality.name}
-                className="w-16 h-16 rounded-full object-cover ring-2 ring-light-border dark:ring-dark-border"
+                className="w-12 h-12 sm:w-16 sm:h-16 rounded-full object-cover ring-2 ring-light-border dark:ring-dark-border"
               />
             ) : (
-              <div className="w-16 h-16 rounded-full bg-gradient-to-br from-light-primary to-light-primary-hover dark:from-dark-primary dark:to-dark-primary-hover flex items-center justify-center text-white text-xl font-semibold">
+              <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-full bg-gradient-to-br from-light-primary to-light-primary-hover dark:from-dark-primary dark:to-dark-primary-hover flex items-center justify-center text-white text-lg sm:text-xl font-semibold">
                 {personality.name.charAt(0).toUpperCase()}
               </div>
             )}
           </div>
 
           {/* Content */}
-          <div className="flex-1 min-w-0">
-            <div className="flex items-start justify-between gap-4 mb-2">
+          <div className="flex-1 min-w-0 w-full">
+            <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 mb-1 sm:mb-2">
               <div className="flex-1 min-w-0">
-                <h3 className="text-lg font-semibold text-light-text dark:text-dark-text group-hover:text-light-primary dark:group-hover:text-dark-primary transition-colors truncate">
+                <h3 className="text-base sm:text-lg font-semibold text-light-text dark:text-dark-text group-hover:text-light-primary dark:group-hover:text-dark-primary transition-colors truncate">
                   {personality.name}
                 </h3>
                 
                 {/* Rating and Review Count */}
-                <div className="flex items-center gap-3 mt-1">
+                <div className="flex flex-wrap items-center gap-2 sm:gap-3 mt-1">
                   {personality.average_review !== null && personality.average_review !== undefined && (
                     <StarRating 
                       rating={personality.average_review} 
@@ -99,7 +99,7 @@ export default function PersonalityCard({
                       showValue
                     />
                   )}
-                  <span className="text-sm text-light-text-secondary dark:text-dark-text-secondary">
+                  <span className="text-xs sm:text-sm text-light-text-secondary dark:text-dark-text-secondary">
                     {personality.total_reviews} {personality.total_reviews === 1 ? 'review' : 'reviews'}
                   </span>
                 </div>
@@ -107,11 +107,11 @@ export default function PersonalityCard({
 
               {/* Action Buttons */}
               {canModify && (
-                <div className="flex items-center gap-2">
+                <div className="flex items-center gap-1 sm:gap-2 flex-shrink-0">
                   <button
                     onClick={handleEdit}
                     disabled={isDeleting}
-                    className="text-sm text-light-primary dark:text-dark-primary hover:text-light-primary-hover dark:hover:text-dark-primary-hover font-medium disabled:opacity-50 transition-colors"
+                    className="text-xs sm:text-sm text-light-primary dark:text-dark-primary hover:text-light-primary-hover dark:hover:text-dark-primary-hover font-medium disabled:opacity-50 transition-colors"
                   >
                     Edit
                   </button>
@@ -119,7 +119,7 @@ export default function PersonalityCard({
                   <button
                     onClick={handleDelete}
                     disabled={isDeleting}
-                    className="text-sm text-red-600 dark:text-red-400 hover:text-red-700 dark:hover:text-red-300 font-medium disabled:opacity-50 transition-colors"
+                    className="text-xs sm:text-sm text-red-600 dark:text-red-400 hover:text-red-700 dark:hover:text-red-300 font-medium disabled:opacity-50 transition-colors"
                   >
                     {isDeleting ? 'Deleting...' : 'Delete'}
                   </button>
@@ -129,13 +129,13 @@ export default function PersonalityCard({
 
             {/* Description */}
             {personality.description && (
-              <p className="text-sm text-light-text-secondary dark:text-dark-text-secondary line-clamp-2">
+              <p className="text-xs sm:text-sm text-light-text-secondary dark:text-dark-text-secondary line-clamp-2">
                 {truncateDescription(personality.description, 200)}
               </p>
             )}
 
             {/* Created Date */}
-            <div className="text-xs text-light-text-secondary dark:text-dark-text-secondary mt-2">
+            <div className="text-xs text-light-text-secondary dark:text-dark-text-secondary mt-1 sm:mt-2">
               Created {new Date(personality.created_at).toLocaleDateString()}
             </div>
           </div>

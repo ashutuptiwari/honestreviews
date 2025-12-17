@@ -1,0 +1,32 @@
+import React from 'react';
+
+export const ReviewFeed: React.FC = () => {
+  return (
+    <div className="max-w-4xl mx-auto px-4 py-12">
+      <div className="card p-12 text-center">
+        <div className="mb-4">
+          <svg
+            className="mx-auto h-16 w-16 text-light-text-secondary dark:text-dark-text-secondary"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            strokeWidth={1.5}
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z"
+            />
+          </svg>
+        </div>
+        <h2 className="text-2xl font-bold text-light-text dark:text-dark-text mb-2">
+          Your Personalized Feed is Coming Soon
+        </h2>
+        <p className="text-light-text-secondary dark:text-dark-text-secondary max-w-md mx-auto">
+          We're building a personalized review feed that will show you the latest reviews from organizations you're a member of.
+        </p>
+      </div>
+    </div>
+  );
+};
+

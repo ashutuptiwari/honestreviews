@@ -1,0 +1,147 @@
+/* frontend/src/styles/globals.css */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  /* Light mode (default) */
+  :root {
+    --bg: #FBF7FA;
+    --surface: #F0E4F5;
+    --primary: #7B4A8E;
+    --primary-hover: #6A3D7A;
+    --text: #2B1A33;
+    --text-secondary: #5A3D63;
+    --border: #E0D0E8;
+  }
+
+  /* Dark mode */
+  .dark {
+    --bg: #13091A;
+    --surface: #241633;
+    --primary: #A674B8;
+    --primary-hover: #B888C4;
+    --text: #F0E5F3;
+    --text-secondary: #C4B5CC;
+    --border: #3D2A4A;
+  }
+
+  body {
+    margin: 0;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+      'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+      sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    @apply bg-light-bg dark:bg-dark-bg text-light-text dark:text-dark-text;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  /* Smooth transitions for theme changes */
+  * {
+    transition-property: background-color, border-color, color, fill, stroke;
+    transition-duration: 200ms;
+    transition-timing-function: ease-in-out;
+  }
+
+  /* Typography scale */
+  h1 {
+    @apply text-4xl font-bold text-light-text dark:text-dark-text;
+  }
+
+  h2 {
+    @apply text-3xl font-semibold text-light-text dark:text-dark-text;
+  }
+
+  h3 {
+    @apply text-2xl font-semibold text-light-text dark:text-dark-text;
+  }
+
+  h4 {
+    @apply text-xl font-medium text-light-text dark:text-dark-text;
+  }
+
+  h5 {
+    @apply text-lg font-medium text-light-text dark:text-dark-text;
+  }
+
+  h6 {
+    @apply text-base font-medium text-light-text dark:text-dark-text;
+  }
+
+  p {
+    @apply text-base text-light-text dark:text-dark-text;
+  }
+
+  a {
+    @apply text-light-primary dark:text-dark-primary;
+    @apply hover:text-light-primary-hover dark:hover:text-dark-primary-hover;
+  }
+}
+
+@layer components {
+  /* Card style */
+  .card {
+    @apply bg-light-surface dark:bg-dark-surface;
+    @apply border border-light-border dark:border-dark-border;
+    @apply rounded-lg p-6;
+    @apply shadow-card dark:shadow-card-dark;
+    @apply hover:shadow-card-hover dark:hover:shadow-card-dark-hover;
+  }
+
+  /* Button styles */
+  .btn-primary {
+    @apply bg-light-primary dark:bg-dark-primary;
+    @apply text-white;
+    @apply px-6 py-2.5 rounded-lg;
+    @apply font-medium;
+    @apply transition-all duration-200;
+    @apply focus:outline-none focus:ring-2 focus:ring-light-primary dark:focus:ring-dark-primary focus:ring-offset-2;
+  }
+  
+  .btn-primary:hover:not(:disabled) {
+    @apply bg-light-primary-hover dark:bg-dark-primary-hover;
+  }
+  
+  .btn-primary:disabled {
+    @apply opacity-50 cursor-not-allowed;
+  }
+
+  .btn-secondary {
+    @apply bg-transparent;
+    @apply text-light-primary dark:text-dark-primary;
+    @apply border-2 border-light-primary dark:border-dark-primary;
+    @apply px-6 py-2.5 rounded-lg;
+    @apply font-medium;
+    @apply transition-all duration-200;
+    @apply focus:outline-none focus:ring-2 focus:ring-light-primary dark:focus:ring-dark-primary focus:ring-offset-2;
+  }
+  
+  .btn-secondary:hover:not(:disabled) {
+    @apply bg-light-primary dark:bg-dark-primary;
+    @apply text-white;
+  }
+  
+  .btn-secondary:disabled {
+    @apply opacity-50 cursor-not-allowed;
+  }
+
+  /* Input styles */
+  .input {
+    @apply w-full px-4 py-2.5 rounded-lg;
+    @apply bg-light-bg dark:bg-dark-bg;
+    @apply border border-light-border dark:border-dark-border;
+    @apply text-light-text dark:text-dark-text;
+    @apply placeholder-light-text-secondary dark:placeholder-dark-text-secondary;
+    @apply focus:outline-none focus:ring-2 focus:ring-light-primary dark:focus:ring-dark-primary;
+    @apply transition-all duration-200;
+  }
+
+  /* Textarea styles */
+  .textarea {
+    @apply input resize-y;
+    min-height: 120px;
+  }
+}

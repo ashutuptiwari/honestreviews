@@ -392,6 +392,8 @@ export const selectOrgMembersLoading = (slug: string) => (state: RootState) =>
 export const selectCanModerateOrg =
   (slug: string, userId?: string) =>
   (state: RootState): boolean => {
+    
+    // console.log('selectCanModerateOrg:', slug, userId);
     if (!slug || !userId) return false;
 
     const members = state.orgs.membersBySlug[slug];

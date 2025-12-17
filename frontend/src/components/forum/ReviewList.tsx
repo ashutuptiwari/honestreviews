@@ -29,6 +29,7 @@ interface ReviewListProps {
   personalityId: string;
   currentUserId?: string;
   onEditReview?: (review: Review) => void;
+  canModerateOrg?: boolean;
 }
 
 export const ReviewList: React.FC<ReviewListProps> = ({
@@ -37,6 +38,7 @@ export const ReviewList: React.FC<ReviewListProps> = ({
   personalityId,
   currentUserId,
   onEditReview,
+  canModerateOrg = false,
 }) => {
   const dispatch = useDispatch<AppDispatch>();
   const { dialog, confirm, close } = useDialog();
@@ -201,6 +203,7 @@ export const ReviewList: React.FC<ReviewListProps> = ({
             onEdit={onEditReview ? () => onEditReview(review) : undefined}
             onDelete={() => handleDelete(review.id)}
             isDeleting={deletingId === review.id}
+            canDelete={canModerateOrg}
           />
         ))}
 

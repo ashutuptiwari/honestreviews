@@ -10,6 +10,7 @@ interface ReviewCardProps {
   onDelete?: () => void;
   isDeleting?: boolean;
   compact?: boolean;
+  canDelete?: boolean;
 }
 
 export const ReviewCard: React.FC<ReviewCardProps> = ({
@@ -19,9 +20,11 @@ export const ReviewCard: React.FC<ReviewCardProps> = ({
   onDelete,
   isDeleting = false,
   compact = false,
+  canDelete = false,
 }) => {
   const isAuthor = Boolean(currentUserId && review.author?.id === currentUserId);
-  const showActions = isAuthor && (onEdit || onDelete);
+  const showEdit = isAuthor && onEdit;
+  const showDelete = (isAuthor || canDelete) && onDelete;
 
   const reviewBody = 'snippet' in review ? review.snippet : review.body;
   const timeAgo = formatDistanceToNow(new Date(review.created_at), {
@@ -58,9 +61,9 @@ export const ReviewCard: React.FC<ReviewCardProps> = ({
         </div>
 
         {/* Actions */}
-        {showActions && (
+        {(showEdit || showDelete) && (
           <div className="flex items-center gap-2 sm:gap-3 flex-shrink-0">
-            {onEdit && (
+            {showEdit && (
               <button
                 onClick={onEdit}
                 disabled={isDeleting}
@@ -69,7 +72,7 @@ export const ReviewCard: React.FC<ReviewCardProps> = ({
                 Edit
               </button>
             )}
-            {onDelete && (
+            {showDelete && (
               <button
                 onClick={onDelete}
                 disabled={isDeleting}

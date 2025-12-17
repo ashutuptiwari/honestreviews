@@ -23,6 +23,7 @@ interface ReviewsSectionProps {
   personalityId: string;
   currentUserId?: string;
   isOrgMember: boolean;
+  canModerateOrg?: boolean;
 }
 
 export const ReviewsSection: React.FC<ReviewsSectionProps> = ({
@@ -31,6 +32,7 @@ export const ReviewsSection: React.FC<ReviewsSectionProps> = ({
   personalityId,
   currentUserId,
   isOrgMember,
+  canModerateOrg = false,
 }) => {
   const dispatch = useDispatch<AppDispatch>();
   const stats = useSelector((state: RootState) =>
@@ -189,6 +191,7 @@ export const ReviewsSection: React.FC<ReviewsSectionProps> = ({
         personalityId={personalityId}
         currentUserId={currentUserId}
         onEditReview={handleEditReview}
+        canModerateOrg={canModerateOrg}
       />
     </div>
   );

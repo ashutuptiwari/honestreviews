@@ -239,6 +239,7 @@ export default function PersonalityDetailPage() {
             personalityId={personality.id}
             currentUserId={authUser?.id}
             isOrgMember={isOrgMember}
+            canModerateOrg={canModify}
           />
         </div>
 
